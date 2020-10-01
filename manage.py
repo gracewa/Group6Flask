@@ -1,14 +1,9 @@
-from app import create_app,db
+from app import db
 from flask_script import Manager,Server
 from  flask_migrate import Migrate, MigrateCommand
 
-# Creating app instance
-app = create_app('development')
- # app = create_app(os.environ.get("FLASK_ENV"))
-
-
-manager = Manager(app)
-migrate = Migrate(app,db)
+#manager = Manager(app)
+migrate = Migrate(db)
 
 manager.add_command('server',Server)
 manager.add_command('db',MigrateCommand)
@@ -22,7 +17,7 @@ def test():
 
 @manager.shell
 def make_shell_context():
-    return dict(app = app,db = db,Role = Role, User = User)
+    return dict(db = db,Role = Role, User = User)
 
 if __name__ == '__main__':
     manager.run(debug=True)
