@@ -1,0 +1,15 @@
+{% macro displayBookList(book_list) %} {% for book in book_list %}
+<div></div>
+<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+
+    <!-- <img src="{{ book.poster }}" alt="{{ book.title }} poster" class="img-responsive">  -->
+    {%if book.poster=={}%}
+    <img src="{{ book.author }}" alt="{{ book.title }} poster" class="img-responsive"> {%else%}
+    <img src="{{ book.poster }}" alt="{{ book.title }} poster" class="img-responsive"> {%endif%}
+    <li class="text-center">
+        <a href="/book/{{book.id}}">
+            {{ book.title|truncate(10)}}</a>
+    </li>
+</div>
+
+{% endfor %} {% endmacro %}
