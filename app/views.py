@@ -8,9 +8,10 @@ def index():
     '''
     Root function returning index/home page with data
     '''
-    book= get_book() 
+    book= get_book()
+    title = 'title'
     
-    return render_template('index.html',books=book)
+    return render_template('index.html',books=book, title=title)
 @app.route('/book/<int:id>')
 def get_books(id):
 

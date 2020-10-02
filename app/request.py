@@ -18,13 +18,35 @@ Book= book.Book
 def get_book():
     url = 'https://www.goodreads.com/search.xml?key=jCRKYMgy7fN9hxa2YlkQ&q=business'
     response = urllib.request.urlopen(url).read()
-    res = bs(response, "lxml-xml")
-    print(res)
-    
+    res = bs(response, "lxml")
+    # print(res)
+
+    results = res.find('results')
+
     images = res.findAll('image_url')
     titles = res.findAll('title')
+    authors = res.findAll('name')
 
-    book_results = zip(images, titles)
+    image_urls = []
+    for image in images:
+        clean = re.compile('<.*?>')
+        clean2 = re.sub(clean, '', str(image))
+        image_urls.append(clean2)
+
+    processed_titles = []
+    for title in titles:
+        clean = re.compile('<.*?>')
+        clean2 = re.sub(clean, '', str(title))
+        processed_titles.append(clean2)
+
+    author_names = []
+    for author in authors:
+        clean = re.compile('<.*?>')
+        clean2 = re.sub(clean, '', str(author))
+        author_names.append(clean2)
+
+
+    book_results = zip(image_urls, processed_titles, author_names)
     return book_results
 
 

@@ -10,11 +10,13 @@ import cloudinary.uploader
 from cloudinary.uploader import upload
 import cloudinary.api
 from cloudinary.utils import cloudinary_url
+from ..request import  get_book
 
 @main.route('/', methods = ['GET','POST'])
 def index():
-    title = 'Categories'
-    return render_template('index.html', title=title)
+    title = 'Popular Books'
+    book = get_book()
+    return render_template('index.html', title=title, books=book)
 
 @main.route('/user/<uname>', methods = ['GET','POST'])
 def profile(uname):

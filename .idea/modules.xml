@@ -3,9 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Group6Flask.iml" filepath="$PROJECT_DIR$/.idea/Group6Flask.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../bazuu/.idea/bazuu.iml" filepath="$PROJECT_DIR$/../bazuu/.idea/bazuu.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../goodreads/.idea/goodreads.iml" filepath="$PROJECT_DIR$/../goodreads/.idea/goodreads.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../minutepitch/.idea/minutepitch.iml" filepath="$PROJECT_DIR$/../minutepitch/.idea/minutepitch.iml" />
     </modules>
   </component>
 </project>
