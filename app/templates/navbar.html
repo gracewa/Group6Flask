@@ -1,10 +1,11 @@
-<nav class="navbar sticky-top navbar-light " style="background-color: #e3f2fd;">
+<nav class="navbar sticky-top navbar-light " style="background-color: #E3F2FD;">
     <a class="navbar-brand" href="#">BOOKWORM</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+            {% if current_user.is_authenticated %}
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -17,10 +18,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{url_for('')}}">Sign in</a>
             </li>
+            {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="{{url_for('')}}">Sign up</a>
             </li>
-
+            {%endif%}
         </ul>
     </div>
 </nav>
